@@ -4,6 +4,7 @@
 
 <script setup>
 import * as THREE from "three";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 const demo1 = ref();
 
 const scene = new THREE.Scene();
@@ -20,8 +21,20 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+// scene.add(cube);
 camera.position.z = 5;
+
+const loader = new GLTFLoader().setPath( '../assets/3d/' );
+console.log(loader);
+loader.load( 'test3.glb', function ( gltf ) {
+  console.log(gltf);
+	// scene.add( gltf.scene );
+
+}, function(){}, function ( error ) {
+
+	console.error( '未知错误' ,error );
+
+} );
 
 const animate = () => {
   requestAnimationFrame(animate);
