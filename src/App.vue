@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import Stats from "three/addons/libs/stats.module.js";
 import { GUI } from "three/addons/libs/lil-gui.module.min.js";
-import { points, lines, mesh1, m2mesh, group, m4model } from "./threejs";
+import { points, lines, mesh1, m2mesh, group, m4model, m5group } from "./hooks";
 
 const gui = new GUI();
 
@@ -28,7 +28,7 @@ const scene = new THREE.Scene();
 // const mesh = new THREE.Mesh(geometry, material);
 // mesh.position.set(50, 0, 0);
 
-scene.add(group);
+scene.add(m5group);
 
 // const eu = new THREE.Euler(Math.PI/2,Math.PI,0)
 // mesh.rotation.y = Math.PI/4
@@ -159,15 +159,3 @@ onMounted(() => {
 </template>
 
 <style scoped></style>
-<template>
-    <demo1/>
-</template>
-
-<script setup>
-import demo1 from './components/demo1.vue'
-
-</script>
-
-<style lang="less" scoped>
-
-</style>

@@ -16,7 +16,6 @@ group.add(m3mesh1, m3mesh2);
 
 const box3 = new THREE.Box3()
 box3.expandByObject(group)
-console.log(box3);
 // group.translateY(50)
 
 // group.scale.set(1,1,1)
